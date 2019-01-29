@@ -13,8 +13,11 @@ namespace DSTRAINING.WEB.Models
         public string Name { get; set; }
         [StringLength(128)]
         public string Email { get; set; }
-        public int DeptId { get; set; }
-        [ForeignKey("DeptId")]
+
+        public bool IsActive { get; set; }
+
+        public int DepartmentId { get; set; }
+        [ForeignKey("DepartmentId")]
         public Department Department { get; set; }
     }
 }

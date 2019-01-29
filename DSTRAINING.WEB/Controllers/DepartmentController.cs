@@ -1,17 +1,17 @@
 ﻿using System.Net;
 using System.Web.Mvc;
 using DSTRAINING.WEB.Models;
-using DSTRAINING.WEB.Services;
+using DSTRAINING.WEB.Repositories;
 
 namespace DSTRAINING.WEB.Controllers
 {
     public class DepartmentController : Controller
     {
-        private DepartmentService _department;
+        private DepartmentRepository _department;
 
         public DepartmentController()
         {
-            _department = new DepartmentService();
+            _department = new DepartmentRepository();
         }
 
         // GET: Department
