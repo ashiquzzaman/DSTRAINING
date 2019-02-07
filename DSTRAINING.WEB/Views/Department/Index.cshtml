@@ -1,33 +1,43 @@
-﻿@model IEnumerable<DSTRAINING.WEB.Models.Department>
+﻿<div id="maniContent"></div>
+<script type="text/javascript">
+    $(function() {
+        geDepts();
+    });
+    function geDepts() {
+        $.getJSON("http://localhost:56342/api/Department", function (allDept) {
+            var compiled = _.template($("#dept-template").html());
+            $("#maniContent").html(compiled({ depts: allDept }));
 
-@{
-    ViewBag.Title = "Index";
-}
+            var asd= "<table><tr>"
+        });
+    };
+</script>
 
-<h2>Index</h2>
+<script type="text/x-template" id="dept-template">
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th></th>
-    </tr>
+    <table class="table">
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Name
+            </th>
+            <th></th>
+        </tr>
+        <% _.each(depts, function(dept){%>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
+        <tr>
+            <td>
+                <%= dept.Id %>
+            </td>
+            <td>
+                <%= dept.Name %>
+            </td>
+            <td></td>
+        </tr>
+        <%})%>     
 
-</table>
+    </table>
+
+</script>

@@ -12,17 +12,17 @@ namespace DSTRAINING.WEB.Controllers
         private EmployeeRepository _employee;
         private DepartmentRepository _department;
 
-        public EmployeeController(EmployeeRepository employee, DepartmentRepository department)
-        {
-            _employee = employee;
-            _department = department;
-        }
-
-        //public EmployeeController()
+        //public EmployeeController(EmployeeRepository employee, DepartmentRepository department)
         //{
-        //    _employee = new EmployeeRepository();
-        //    _department = new DepartmentRepository();
+        //    _employee = employee;
+        //    _department = department;
         //}
+
+        public EmployeeController()
+        {
+            _employee = new EmployeeRepository();
+            _department = new DepartmentRepository();
+        }
 
         // GET: Employee
         public ActionResult Index()
